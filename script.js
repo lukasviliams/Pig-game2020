@@ -1,15 +1,18 @@
 'use strict';
 //Global Variables selecting elements
+
 const player0El = document.querySelector('.player--0');
 const player1El = document.querySelector('.player--1');
 const score0El = document.querySelector('#score--0');
 const score1El = document.getElementById('score--1');
 const current0El = document.getElementById('current--0');
 const current1El = document.getElementById('current--1');
+
 const diceEl = document.querySelector('.dice');
 const buttonNew = document.querySelector('.btn--new');
 const buttonRoll = document.querySelector('.btn--roll');
 const buttonnHold = document.querySelector('.btn--hold');
+
 
 //Current score
 let currentScore = 0;
@@ -36,9 +39,11 @@ const switchPlayer = () => {
   player1El.classList.toggle('player--active');
 };
 
+
 //Default score
 score0El.textContent = 0;
 score1El.textContent = 0;
+
 
 /////////////// Rolling dice funcionality
 buttonRoll.addEventListener('click', () => {
@@ -61,6 +66,18 @@ buttonRoll.addEventListener('click', () => {
     }
   }
 });
+
+//hidden dice
+diceEl.classList.add('hidden');
+
+// Rolling dice funcionality
+buttonRoll.addEventListener('click', () => {
+  //1. generate a random dice roll
+  const dice = Math.trunc(Math.random() * 6) + 1;
+  //2. display the dice
+  diceEl.classList.remove('hidden');
+  diceEl.src = 'dice--${dice}.png';
+
 
 //////////////////////Hold button Event Handler
 buttonnHold.addEventListener('click', () => {
@@ -88,6 +105,7 @@ buttonnHold.addEventListener('click', () => {
   }
 });
 
+
 //New game BTN resseting the game to initall status
 
 buttonNew.addEventListener('click', () => {
@@ -108,3 +126,4 @@ buttonNew.addEventListener('click', () => {
   //Seting active player to initial
   activePlayer = 0;
 });
+
