@@ -107,4 +107,6 @@ buttonNew.addEventListener('click', () => {
   document.querySelector(`.player--0`).classList.add('player--active');
   //Seting active player to initial
   activePlayer = 0;
+  //Remove dice png
+  diceEl.classList.add('hidden');
 });
