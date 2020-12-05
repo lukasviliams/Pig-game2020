@@ -16,7 +16,7 @@ let currentScore = 0;
 //Active player
 let activePlayer = 0;
 //Acumulated scores for both players
-const scores = [0, 0];
+let scores = [0, 0];
 //Game mode
 let playing = true;
 
@@ -96,7 +96,7 @@ buttonNew.addEventListener('click', () => {
   score1El.textContent = 0;
   current0El.textContent = 0;
   current1El.textContent = 0;
-  scores[activePlayer] = 0;
+  scores = [0, 0];
   currentScore = 0;
   //seting game satus to true
   playing = true;
@@ -105,6 +105,7 @@ buttonNew.addEventListener('click', () => {
     .querySelector(`.player--${activePlayer}`)
     .classList.remove('player--winner');
   document.querySelector(`.player--0`).classList.add('player--active');
+  document.querySelector(`.player--1`).classList.remove('player--active');
   //Seting active player to initial
   activePlayer = 0;
   //Remove dice png
